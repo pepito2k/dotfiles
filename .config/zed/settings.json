@@ -11,7 +11,18 @@
     "copilot": true
   },
   "project_panel": {
-    "dock": "right"
+    "dock": "right",
+    "button": true
+  },
+  "chat_panel": {
+    "button": false
+  },
+  "assistant": {
+    "version": "1",
+    "enabled": false
+  },
+  "collaboration_panel": {
+    "button": false
   },
   "theme": "Dracula",
   "telemetry": {
@@ -25,6 +36,9 @@
   "terminal": {
     "font_family": "Iosevka Nerd Font",
     "font_size": 16
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false
   },
   "inlay_hints": {
     "enabled": true,
