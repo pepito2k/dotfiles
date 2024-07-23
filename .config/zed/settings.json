@@ -17,27 +17,36 @@
   "chat_panel": {
     "button": false
   },
+  "outline_panel": {
+    "button": false
+  },
   "assistant": {
+    "provider": {
+      "name": "openai",
+      "default_model": "gpt-4"
+    },
     "version": "1",
     "enabled": false
   },
   "collaboration_panel": {
     "button": false
   },
-  "theme": "Dracula",
+  "theme": "Catppuccin Macchiato",
   "telemetry": {
     "metrics": false
   },
   "ui_font_size": 16,
+  "ui_font_family": "Fira Code",
   "buffer_font_size": 14,
+  "buffer_font_family": "Fira Code",
   "tab_size": 2,
   "remove_trailing_whitespace_on_save": true,
-  "buffer_font_family": "Fira Code",
   "terminal": {
     "font_family": "Iosevka Nerd Font",
     "font_size": 16
   },
   "tab_bar": {
+    "show": true,
     "show_nav_history_buttons": false
   },
   "inlay_hints": {
@@ -45,6 +54,13 @@
     "show_type_hints": true,
     "show_parameter_hints": true,
     "show_other_hints": true
+  },
+  "indent_guides": {
+    "enabled": true,
+    "line_width": 1,
+    "active_line_width": 2,
+    "coloring": "indent_aware",
+    "background_coloring": "disabled"
   },
   "lsp": {
     "solargraph": {
