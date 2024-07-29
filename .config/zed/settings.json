@@ -20,6 +20,9 @@
   "outline_panel": {
     "button": false
   },
+  "notification_panel": {
+    "button": false
+  },
   "assistant": {
     "provider": {
       "name": "openai",
@@ -43,11 +46,16 @@
   "remove_trailing_whitespace_on_save": true,
   "terminal": {
     "font_family": "Iosevka Nerd Font",
-    "font_size": 16
+    "font_size": 16,
+    "copy_on_select": true
   },
   "tab_bar": {
     "show": true,
     "show_nav_history_buttons": false
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false
   },
   "inlay_hints": {
     "enabled": true,

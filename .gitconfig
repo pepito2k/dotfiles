@@ -8,20 +8,6 @@
 	excludesfile = /Users/pepito2k/.gitignore_global
 [alias]
 	cleanup = !git branch -vv | grep -v 'origin/.*]' | awk '{print $1}' | xargs git branch -d
-[merge]
-	tool = vscode
-[mergetool "vscode"]
-	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
-[diff]
-	tool = vscode
-[difftool "vscode"]
-	cmd = code --wait --diff $LOCAL $REMOTE
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [gpg]
 	format = ssh
 [gpg "ssh"]

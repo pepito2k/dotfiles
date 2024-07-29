@@ -5,32 +5,42 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# history setup
+HISTFILE=$HOME/.zhistory
+SAVEHIST=1000
+HISTSIZE=999
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# completion using arrow keys (based on history)
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
 
-# Customize to your needs...
-
+# custom aliases
 alias be="bundle exec"
 
-alias lss="/bin/ls"
-
-alias ls="lsd"
+alias _ls="/bin/ls"
+alias ls="lsd --hyperlink always"
 alias l="ls -l"
 alias la="ls -a"
 alias lla="ls -la"
 alias lt="ls -t"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias cd="z"
+alias ..="cd .."
+
+alias gws="git status -s"
+alias gwS="git status"
+alias gc="git commit"
+alias gco="git checkout"
+alias gf="git fetch"
+alias gp="git pull"
+alias gps="git push"
+
+# ---- Zoxide (better cd) ----
+eval "$(zoxide init zsh)"
 
 # asdf
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
@@ -38,27 +48,9 @@ alias lt="ls -t"
 # Add libpq to the path to properly install pg ruby gem
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
-# ---- FZF -----
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
-# Set up fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
-
-# -- Use fd instead of fzf --
-
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-
-# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
-_fzf_compgen_path() {
-  fd --hidden --exclude .git . "$1"
-}
-
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --type=d --hidden --exclude .git . "$1"
-}
-
-source ~/fzf-git.sh/fzf-git.sh
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
