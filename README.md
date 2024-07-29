@@ -9,3 +9,5 @@ Simplify dotfiles setup:
 Just in case:
 
 - Run `stow -D .` to remove all symlinks
+
+To install brew packages, run `brew bundle`
